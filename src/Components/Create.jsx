@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Create() {
     return ( 
@@ -18,10 +19,8 @@ function Create() {
                         <label htmlFor="name">Phone:</label>
                         <input type="text" name="phone" className="form-control" placeholder="Enter phone" />
                     </div>
-                    <div className='mb-2'>
-                        <label htmlFor="name">Phone:</label>
-                        <input type="text" name="phone" className="form-control" placeholder="Enter phone" />
-                    </div>
+                    <button className="">Submit</button>
+                    <Link to="/" className="btn-btn-primary ms-3">Back</Link>
                 </form>
             </div>
         </div>
