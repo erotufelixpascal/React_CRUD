@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function Create() {
@@ -9,10 +9,15 @@ function Create() {
         phone:''
 })
 
+const navigate = useNavigate();
+
 const handleSubmit = (event) => {
     event.preventDefault();
-    axios.get('http://localhost:3000/Users')
-    .then(res => setData(res.data))
+    axios.post('http://localhost:3000/Users',values)
+    .then(res => {
+        console.log(res);
+        navigate('/')
+    })
     .catch(err => console.log(err));
 
 }
