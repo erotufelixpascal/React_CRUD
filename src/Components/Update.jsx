@@ -12,11 +12,13 @@ function Update() {
         phone:''
     })
     //read to the data
-    const [data ,setData] = useState ([])
+    //const [data ,setData] = useState ([])
     const {id} =useParams([])
     useEffect (() =>{
         axios.get('http://localhost:3000/Users' + id)
-        .then(res => setData(res.data))
+        .then(res => {
+            setValues(res.data);
+        })
         .catch(err => console.log(err));
 
     }, [])
@@ -42,19 +44,19 @@ function Update() {
                     <div className='mb-2'>
                         <label htmlFor="name">Name:</label>
                         <input type="text" name="name" className="form-control" placeholder="Enter Name" 
-                         value= {data.name} 
+                         value= {values.name} 
                          onchange = {e => setValues({...values, name: e.target.value})}/>
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="name">Email:</label>
                         <input type="email" name="email" className="form-control" placeholder="Enter Email" 
-                        value= {data.email} 
+                        value= {values.email} 
                         onchange = {e => setValues({...values, email: e.target.value})}/>
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="name">Phone:</label>
                         <input type="text" name="phone" className="form-control" placeholder="Enter phone" 
-                        value= {data.phone}
+                        value= {values.phone}
                         onchange = {e => setValues({...values, phone: e.target.value})}/>
                     </div>
                     <button className="">Update</button>
