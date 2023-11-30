@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 
 function Home() {
+    //read to the data
     const [data ,setData] = useState ([])
     useEffect (() =>{
         axios.get('http://localhost:3000/Users')
