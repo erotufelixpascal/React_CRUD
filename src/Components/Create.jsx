@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Create() {
+    const [values,setValues] = useState({
+        name:'',
+        email:'',
+        phone:''
+})
     return ( 
         <div className='d-flex w-100 vh-100 justify-center-center align-items-center gb-light'>
             <div className='w-50 border gb-white shadow px-5 pt-3 pb-5 rounded'>
