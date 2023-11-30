@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 
 
 function Home() {
@@ -13,6 +13,18 @@ function Home() {
         .catch(err => console.log(err));
 
     }, [])
+    const navigate = useNavigate();
+
+    const handleDelete =(id) => {
+        const confirm = window.confirm('Would you like to delete the user');
+        if(confirm){
+            axios.delete('http://localhost:3000/Users/'+id)
+            .then(res =>{
+                navigate('/');
+            }).catch(err => console.log(err));
+        }
+
+     }
 
     return ( 
         <div className='d-flex flex-column justify-content-center align-items-center bg-light vh-100'>
@@ -40,9 +52,9 @@ function Home() {
                                     <td>{d.email}</td>
                                     <td>{d.phone}</td>
                                     <td>
-                                        <Link to={'/read/${d.id}'} className='btn btn-sm btn-primary me-2'>Read</Link>
-                                        <Link to='/update/${d.id}' className='btn btn-sm btn-primary me-2'>Edit</Link>
-                                        <button className='btn btn-sm btn-danger'>Delete</button>
+                                        <Link to={`/read/${d.id}`} className='btn btn-sm btn-primary me-2'>Read</Link>
+                                        <Link to={`/update/${d.id}`} className='btn btn-sm btn-primary me-2'>Edit</Link>
+                                        <button onClick={e => handleDelete(d.id)} className='btn btn-sm btn-danger'>Delete</button>
                                     </td>
                                     
                                 </tr>
@@ -56,6 +68,8 @@ function Home() {
 
         </div>
      );
+     
+     
 }
 
 export default Home;

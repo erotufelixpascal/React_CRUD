@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Felix Pascal",
-      "username": "Felix",
-      "email": "felix@gmail.com",
-      "phone": "1-364-4646",
-      "website": "hildogard.org"
-    },
-    {
       "id": 2,
       "name": "Lios Atwiine",
       "username": "Lios",
