@@ -25,7 +25,7 @@ function Update() {
 
     const handldeUpdate =(event) =>{
         event.preventDefault();
-        axios.put('http://localhost:3000/Users',values)
+        axios.put('http://localhost:3000/Users/'+id,values)
         .then(res => {
             console.log(res);
             navigate('/')
