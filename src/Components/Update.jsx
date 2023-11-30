@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import { useEffect, useState } from "react";
@@ -21,10 +21,18 @@ function Update() {
 
     }, [])
 
+    const navigate = useNavigate();
+
     const handldeUpdate =(event) =>{
         event.preventDefault();
-        
+        axios.put('http://localhost:3000/Users',values)
+        .then(res => {
+            console.log(res);
+            navigate('/')
+        })
+        .catch(err => console.log(err));
     }
+    
 
     return ( 
         <div className="d-flex w-100 vh-100 justify-content-center align-items-center bg-light">
