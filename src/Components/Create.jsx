@@ -14,7 +14,7 @@ function Create() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:3000/Users',values)
+        axios.post('http://localhost:3000/Users/',values)
         .then(res => {
             console.log(res);
             navigate('/')
@@ -42,7 +42,7 @@ function Create() {
                         <input type="text" name="phone" className="form-control" placeholder="Enter phone" 
                         onchange = {e => setValues({...values, phone: e.target.value})} />
                     </div>
-                    <button className="">Submit</button>
+                    <button className="btn btn-success">Submit</button>
                     <Link to="/" className="btn btn-primary ms-3">Back</Link>
                 </form>
             </div>

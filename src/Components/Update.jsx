@@ -59,7 +59,7 @@ function Update() {
                         value= {values.phone}
                         onchange = {e => setValues({...values, phone: e.target.value})}/>
                     </div>
-                    <button className="">Update</button>
+                    <button className="btn btn-success">Update</button>
                     <Link to="/" className="btn btn-primary ms-3">Back</Link>
                 </form>
             </div>
