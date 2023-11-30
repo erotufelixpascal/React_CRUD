@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function Create() {
-    const [values,setValues] = useState({
-        name:'',
+    const [values, setValues] = useState({
+        name: '',
         email:'',
         phone:''
 })
 
-const navigate = useNavigate();
+    const navigate = useNavigate();
 
-const handleSubmit = (event) => {
-    event.preventDefault();
-    axios.post('http://localhost:3000/Users',values)
-    .then(res => {
-        console.log(res);
-        navigate('/')
-    })
-    .catch(err => console.log(err));
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post('http://localhost:3000/Users',values)
+        .then(res => {
+            console.log(res);
+            navigate('/')
+        })
+        .catch(err => console.log(err));
 
-}
-    return ( 
+    }
+  return ( 
         <div className='d-flex w-100 vh-100 justify-center-center align-items-center gb-light'>
             <div className='w-50 border gb-white shadow px-5 pt-3 pb-5 rounded'>
                 <h1>Add a User</h1>
