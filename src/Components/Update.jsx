@@ -15,7 +15,7 @@ function Update() {
     //const [data ,setData] = useState ([])
     const {id} =useParams([])
     useEffect (() =>{
-        axios.get('http://localhost:3000/Users' + id)
+        axios.get('http://localhost:3000/Users/' + id)
         .then(res => {
             setValues(res.data);
         })
