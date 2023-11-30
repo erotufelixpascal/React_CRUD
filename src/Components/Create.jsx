@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 function Create() {
     const [values,setValues] = useState({
@@ -7,11 +8,19 @@ function Create() {
         email:'',
         phone:''
 })
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+    axios.get('http://localhost:3000/Users')
+    .then(res => setData(res.data))
+    .catch(err => console.log(err));
+
+}
     return ( 
         <div className='d-flex w-100 vh-100 justify-center-center align-items-center gb-light'>
             <div className='w-50 border gb-white shadow px-5 pt-3 pb-5 rounded'>
                 <h1>Add a User</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className='mb-2'>
                         <label htmlFor="name">Name:</label>
                         <input type="text" name="name" className="form-control" placeholder="Enter Name" />
